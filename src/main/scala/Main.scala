@@ -1,5 +1,6 @@
+import model.Rating
 import utill.Helper.findNumberOfGenresByYear
-import utill.Reader.{parseMovie, parseRRatings, readFromFile}
+import utill.Reader.{parseMovie, parseRatings, readFromFile}
 
 import java.text.SimpleDateFormat
 
@@ -39,7 +40,9 @@ object Main {
     val ratingLines: Seq[String] = readFromFile("ratings.csv")
     ratingLines.take(10).foreach(println)
 
-    val rating: Seq[String] = ratingLines.map(parseRRatings)
+    println("------")
+    val ratings: Seq[Rating] = ratingLines.map(parseRatings)
+    ratings.take(20).foreach(println)
 
     /**
      * Question3 :

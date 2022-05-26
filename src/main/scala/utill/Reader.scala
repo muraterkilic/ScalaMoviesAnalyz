@@ -1,6 +1,6 @@
 package utill
 
-import model.Movie
+import model.{Movie, Rating}
 
 import java.text.SimpleDateFormat
 import scala.io.Source
@@ -35,12 +35,18 @@ object Reader {
     Movie(id,title,year,genres)
   }
 
-  def parseRRatings(line: String): Seq[String] = {
+  def parseRatings(line: String): Rating = {
 
-    //val df: = SimpleDateFormat = new SimpleDateFormat("yyyy")
+    val df: SimpleDateFormat = new SimpleDateFormat("yyyy")
 
     line.split(",").toList match {
       case userId :: movieId :: rating :: ts:: Nil =>
+        Rating(
+          userId.toInt,
+          movieId.toInt,
+          rating.toDouble,
+          df.format(ts.toLong * 1000L)
+      )
     }
   }
 }
