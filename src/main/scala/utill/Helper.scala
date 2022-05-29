@@ -1,6 +1,6 @@
 package utill
 
-import model.{Movie, Rating}
+import model.{Movie, Rating, Tag}
 
 object Helper {
 
