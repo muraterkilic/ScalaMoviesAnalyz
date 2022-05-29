@@ -1,9 +1,8 @@
-import model.Rating
-import utill.Helper.{findGoldenYearOfCinema, findLeastMovieCountByGenre, findNumberOfGenresByYear}
-import utill.Reader.{parseMovie, parseRatings, parseTags, readFromFile}
+import model._
+import utill.Helper._
+import utill.Reader._
 
 import java.text.SimpleDateFormat
-import javax.swing.text.html.HTML.Tag
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -103,7 +102,7 @@ object Main {
    val avgRatingByGenreYear = genreYearAndRatings
      .map{x => (x._1._1,x._1._2, x._2.sum / x._2.length.toDouble) }
      .toList
-     .sortBy{case (_, _, avgRatşng) => avgRatşng}
+     .sortBy{case (_, _, avgRating) => avgRating}
 
    avgRatingByGenreYear.take(10).foreach(println)
 

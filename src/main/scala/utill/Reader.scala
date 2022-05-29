@@ -59,7 +59,7 @@ object Reader {
           userId.toInt,
           movieId.toInt,
           tag,
-          df.format(ts.toLong * 1000L)
+          df.format(ts.toLong * 1000L))
     }
   }
 }
