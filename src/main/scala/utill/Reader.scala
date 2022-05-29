@@ -1,6 +1,6 @@
 package utill
 
-import model.{Movie, Rating}
+import model.{Movie, Rating, Tag}
 
 import java.text.SimpleDateFormat
 import scala.io.Source
@@ -47,6 +47,19 @@ object Reader {
           rating.toDouble,
           df.format(ts.toLong * 1000L)
       )
+    }
+  }
+
+  def parseTags(Line: String):  Tag ={
+    val df: SimpleDateFormat = new SimpleDateFormat("yyyy")
+
+    Line.split(",").toList match {
+      case userId :: movieId :: tag :: ts:: Nil =>
+        Tag(
+          userId.toInt,
+          movieId.toInt,
+          tag,
+          df.format(ts.toLong * 1000L)
     }
   }
 }
